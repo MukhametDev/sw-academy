@@ -1,0 +1,48 @@
+.secury {
+    padding: 25px 0;
+    color: black;
+    position: relative;
+    z-index: 10;
+    // .secury__list
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+
+        @media (max-width: 500px) {    
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+    }
+
+    // .secury__item
+
+    &__item {
+        font-weight: 300;
+        line-height: 26px;
+
+        &:nth-child(2) {
+            transition: all 0.3s ease-in;
+            cursor: pointer;
+            &:hover{
+                color:#F79C1B;                
+            }
+        }
+
+        @media (max-width: 1000px) {    
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {    
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 500px) {    
+        padding: 10px 0;
+    }
+}
+.container {
+}

@@ -1,0 +1,26 @@
+.button{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #F79C1B;
+    border-radius: 5px;
+    font-size: 18px;
+    border: 1px solid #F79C1B;
+    transition: all 0.2s ease-in;
+    &:hover{
+        background-color: #F79C1B;
+        color: #fff;
+    }
+
+    &_bg{
+        background-color: #F79C1B;
+        color: #fff;
+        &:hover{
+            background-color: #c77e19;
+        }
+    }
+
+    @media (max-width: 1000px) {
+		font-size: 16px;
+	}
+}

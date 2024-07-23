@@ -1,0 +1,22 @@
+:root {
+	--container-width: 1190px;
+	--container-padding: 15px;
+
+	--font-main: 'Rubik', sans-serif;
+	--font-accent: 'Inter', serif;
+	--font-second:'Noto Music', sans-serif;
+	--page-bg: #fff;
+	--text-color: #fff;
+	--accent: #ac182c;
+
+	--font-size: 16px;
+
+    --laptop-size: 1199px;
+	--tablet-size: 959px;
+	--mobile-size: 599px;
+}
+
+.dark {
+    --page-bg: #252526;
+    --text-color: #fff;
+}

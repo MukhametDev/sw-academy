@@ -1,0 +1,153 @@
+.about {
+    padding: 166px 0;
+    display: flex;
+    width: 100%;
+    color: black;
+    position: relative;
+    background-color: #EBEBEB;
+    gap: 20px;
+    z-index: 10;
+
+    &__wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden; /* Скрываем излишки изображения */
+    
+            @media (max-width: 700px) {
+                width: 100%;
+                z-index: -1;
+            }
+        }
+    
+    .about__bg {
+        width: 100%;
+        height: 100%;
+        background-image: url('./../../img/about_kitchen.jpeg'); /* Замените на фактический путь */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform 0.5s ease; /* Плавный переход для эффекта увеличения */
+        
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(235, 235, 235,0.5); /* Цвет фона стал оранжевым */
+        }
+
+        @media (max-width: 700px) {
+            width: 100%;
+            z-index: -1;
+        }
+    }
+
+    .about__wrapper:hover .about__bg {
+        transform: scale(1.1); /* Увеличение картинки при наведении */
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Выравнивание контейнера справа */
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    &__bg{
+        min-width: 100%;
+    }
+
+    .about__block {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+        margin-right: 0; /* Добавление отступа справа */
+    
+        @media (max-width: 700px) {
+            justify-content: center;
+            display: block;
+        }
+    }
+
+    .about__title {
+        margin-bottom: 20px;
+        font-size: 40px;
+        font-weight: 500;
+        text-align: right;
+
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 1120px) {    
+            font-size: 32px;
+        }
+
+        @media (max-width: 900px) {    
+            font-size: 24px;
+        }
+
+        @media (max-width: 700px) {    
+            text-align: left;
+            font-size: 40px;
+        }
+    }
+
+    .about__content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-weight: 300;
+        align-self: flex-end;
+        // justify-self:flex-end;
+        // flex: 0 0 360px;
+        max-width: 360px;
+
+        &:not(:last-child) {
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 830px) {
+            max-width: 300px;
+        }   
+
+    }
+
+    &__text{
+        text-align: justify;
+    }
+
+    .about__btn {
+        align-self: flex-end;
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: orange;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 230px;
+        &:hover {
+            background-color: #c77e19;
+        }
+    }
+
+    @media (max-width: 700px) {
+        min-width: 100%;
+        padding: 70px 0 157px;
+    }
+}
+

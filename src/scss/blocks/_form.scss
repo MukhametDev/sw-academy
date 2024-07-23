@@ -1,6 +1,6 @@
 .form-section{
-    color: black;
-    background-color: #EBEBEB;
+    color: var(--black);
+    background-color: var(--gray-light);
     padding: 160px 0;
 
     &__content{
@@ -64,14 +64,14 @@
     gap: 11px;
 
     &__input{
-        border:1px solid #F79C1B;
+        border:1px solid var(--orange);
         padding: 9px 30px;
         width: 100%;
         max-width: 255px;
         height: 50px;
 
         &::placeholder{
-            color: #1A1A1A80;
+            color: var(--gray);
             font-weight: 300;
         }
 
@@ -87,14 +87,15 @@
     }
 
     &__btn{
-        background-color: #F79C1B;
-        color: #fff;
+        background-color: var(--orange);
+        color: var(--text-color);
         font-weight: 500;
         padding: 9px 76px;
         width: 100%;
         max-width: 255px;
         height: 50px;
-        transition: all 0.3s ease-in;
+        transition: background-color 0.3s ease-in;
+
         &:hover{
             background-color: #c37f00;
         }

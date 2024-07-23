@@ -2,9 +2,9 @@
     padding: 166px 0;
     display: flex;
     width: 100%;
-    color: black;
+    color: var(--black);
     position: relative;
-    background-color: #EBEBEB;
+    background-color: var(--gray-light);
     gap: 20px;
     z-index: 10;
 
@@ -14,7 +14,7 @@
             left: 0;
             width: 50%;
             height: 100%;
-            overflow: hidden; /* Скрываем излишки изображения */
+            overflow: hidden; 
     
             @media (max-width: 700px) {
                 width: 100%;
@@ -29,7 +29,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        transition: transform 0.5s ease; /* Плавный переход для эффекта увеличения */
+        transition:transform 0.5s ease; 
         
         &::before{
             content: '';
@@ -38,7 +38,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(235, 235, 235,0.5); /* Цвет фона стал оранжевым */
+            background-color: var(--gray-opacity);
         }
 
         @media (max-width: 700px) {
@@ -48,13 +48,13 @@
     }
 
     .about__wrapper:hover .about__bg {
-        transform: scale(1.1); /* Увеличение картинки при наведении */
+        transform: scale(1.1); 
     }
 
-    .container {
+    &__container {
         display: flex;
         align-items: center;
-        justify-content: flex-end; /* Выравнивание контейнера справа */
+        justify-content: flex-end; 
         width: 100%;
         height: 100%;
         position: relative;
@@ -71,7 +71,7 @@
         box-sizing: border-box;
         position: relative;
         z-index: 1;
-        margin-right: 0; /* Добавление отступа справа */
+        margin-right: 0; 
     
         @media (max-width: 700px) {
             justify-content: center;
@@ -109,8 +109,6 @@
         gap: 20px;
         font-weight: 300;
         align-self: flex-end;
-        // justify-self:flex-end;
-        // flex: 0 0 360px;
         max-width: 360px;
 
         &:not(:last-child) {
@@ -133,13 +131,15 @@
         text-align: center;
         margin-top: 20px;
         padding: 10px 20px;
-        background-color: orange;
+        background-color: var(--orange);
         border: none;
         color: white;
         font-size: 16px;
         cursor: pointer;
         width: 100%;
         max-width: 230px;
+        transition: background-color 0.3s ease-in;
+        
         &:hover {
             background-color: #c77e19;
         }
@@ -150,4 +150,3 @@
         padding: 70px 0 157px;
     }
 }
-

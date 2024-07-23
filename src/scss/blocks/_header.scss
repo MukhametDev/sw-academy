@@ -1,10 +1,13 @@
 .header {
 	background-color: rgba(0, 0, 0,0.6);
-	padding: 30px 0;
-	position: fixed;
+	padding: 30px 5vw;
+	position: absolute;
 	top: 0;
+	left: 0;
+	right: 0;
 	width: 100%;
 	z-index: 1000;
+
 	&__row {
 		display: flex;
 		justify-content: space-between;
@@ -20,9 +23,8 @@
 		}
 	}
 
-
 	@media (max-width: 1055px) {
-		padding: 20px 0;
+		padding: 20px 3vw;
 	}
 
 	@media (max-width: 950px) {
@@ -37,7 +39,7 @@
 
 	&_orange{
 		font-size: 43px;
-		color: #F79C1B;
+		color: var(--orange);
 
 		@media (max-width: 1150px) {
 			font-size: 35px;
@@ -45,7 +47,7 @@
 	}
 
 	&_gray{
-		color: #F6F6F680;
+		color: var(--text-color-gray);
 
 		@media (max-width: 1150px) {
 			font-size: 14px;
@@ -59,32 +61,28 @@
 		gap: 30px;
 
 		@media (max-width: 1150px) {
-			gap: 20px;
+			gap: 10px;
 		}
 	}
 
 	&__link{
-		transition: border-bottom 0.3s ease;
+		transition:border-bottom 0.3s ease;
 		
 		&:hover{
-			border-bottom: 1px solid #F79C1B;
+			border-bottom: 1px solid var(--orange);
 		}
 	}
-
-	
 
 	@media (max-width: 1005px) {
 		display: none;
 	}
-
-
 }
 
 .relationship{
 	display:flex;
-	gap: 34px;
+	gap: 28px;
 	align-items: center;
-	
+	font-size: 14px;
 	@media (max-width: 1150px) {
 		gap: 17px;
 	}

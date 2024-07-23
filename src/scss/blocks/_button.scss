@@ -2,19 +2,21 @@
     display: inline-block;
     padding: 10px 20px;
     background-color: transparent;
-    color: #F79C1B;
+    color: var(--orange);
     border-radius: 5px;
     font-size: 18px;
-    border: 1px solid #F79C1B;
-    transition: all 0.2s ease-in;
+    border: 1px solid var(--orange);
+    transition: color 0.2s ease-in, background-color 0.2s ease-in;
+
     &:hover{
-        background-color: #F79C1B;
+        background-color: var(--orange);
         color: #fff;
     }
 
     &_bg{
-        background-color: #F79C1B;
+        background-color: var(--orange);
         color: #fff;
+
         &:hover{
             background-color: #c77e19;
         }

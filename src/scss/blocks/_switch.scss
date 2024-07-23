@@ -1,7 +1,6 @@
 .switch {
     padding: 160px 0px 424px;
-    color: black;
-    // .switch__title
+    color: var(--black);
 
     &__title {
         text-align: center;
@@ -12,13 +11,6 @@
             margin-bottom: 82px;
         }
     }
-
-    // .switch__content
-
-    &__content {
-    }
-
-    // .switch__cards
 
     &__cards {
         display: grid;
@@ -49,18 +41,11 @@
         }
     }
 
-    // .switch__card
-
-    &__card {
-    
-    }
-
     @media (max-width: 800px) {
         padding: 76px 0 390px ;
     }
 }
-.container {
-}
+
 .card-switch {
     max-width: 320px;
 
@@ -69,7 +54,6 @@
             margin-bottom: 24px;
         }
     }
-    // .card-switch__title
 
     &__title {
         font-size: 24px;
@@ -84,8 +68,6 @@
             font-size: 20px;
         }
     }
-
-    // .card-switch__text
 
     &__text {
         font-weight: 300;

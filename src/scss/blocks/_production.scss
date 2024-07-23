@@ -2,10 +2,10 @@
     padding: 166px 0;
     display: flex;
     width: 100%;
-    color: black;
+    color: var(--black);
     position: relative;
-    background-color: #EBEBEB;
-    overflow: hidden; /* Скрывает выходящее за пределы содержимое */
+    background-color: var(--gray-light);
+    overflow: hidden; 
 
     .production__bg-wrapper {
         position: absolute;
@@ -13,7 +13,7 @@
         left: 0;
         width: 50%;
         height: 100%;
-        overflow: hidden; /* Скрываем излишки изображения */
+        overflow: hidden; 
         z-index: 1;
 
         @media (max-width: 700px) {
@@ -25,11 +25,11 @@
     .production__bg {
         width: 100%;
         height: 100%;
-        background-image: url('./../../img/production.jpeg'); /* Замените на фактический путь */
+        background-image: url('./../../img/production.jpeg'); 
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        transition: transform 0.5s ease; /* Плавный переход для эффекта увеличения */
+        transition: transform 0.5s ease; 
     
         &::before{
             content: '';
@@ -38,22 +38,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(235, 235, 235,0.5); /* Цвет фона стал оранжевым */
+            background-color: rgba(235, 235, 235,0.5); 
         }
     }
 
     .production__bg-wrapper:hover .production__bg {
-        transform: scale(1.1); /* Увеличение картинки при наведении на обёртку */
+        transform: scale(1.1);
     }
 
-    .container {
+    &__container {
         display: flex;
         align-items: center;
-        justify-content: flex-end; /* Выравнивание контейнера справа */
+        justify-content: flex-end; 
         width: 100%;
         height: 100%;
         position: relative;
-        z-index: 2; /* Содержимое должно быть выше фона */
+        z-index: 2; 
     }
 
     .production__block {
@@ -63,8 +63,8 @@
         padding: 20px;
         box-sizing: border-box;
         position: relative;
-        z-index: 3; /* Содержимое должно быть выше фона */
-        margin-right: 0; /* Добавление отступа справа */
+        z-index: 3; 
+        margin-right: 0; 
     
         @media (max-width: 700px) {
             justify-content: center;
@@ -117,8 +117,6 @@
 
     &__text {
         text-align: justify;
-
-        
     }
 
     .production__btn {
@@ -127,13 +125,14 @@
         text-align: center;
         margin-top: 20px;
         padding: 10px 20px;
-        background-color: orange;
+        background-color: var(--orange);
         border: none;
         color: white;
         font-size: 16px;
         cursor: pointer;
         width: 100%;
         max-width: 230px;
+
         &:hover {
             background-color: #c77e19;
         }

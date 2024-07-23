@@ -1,9 +1,8 @@
 .secury {
     padding: 25px 0;
-    color: black;
+    color: var(--black);
     position: relative;
     z-index: 10;
-    // .secury__list
 
     &__list {
         display: flex;
@@ -17,17 +16,16 @@
         }
     }
 
-    // .secury__item
-
     &__item {
         font-weight: 300;
         line-height: 26px;
 
         &:nth-child(2) {
-            transition: all 0.3s ease-in;
+            transition:color 0.3s ease-in;
             cursor: pointer;
+
             &:hover{
-                color:#F79C1B;                
+                color:var(--orange);                
             }
         }
 
@@ -43,6 +41,4 @@
     @media (max-width: 500px) {    
         padding: 10px 0;
     }
-}
-.container {
 }

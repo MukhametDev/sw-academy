@@ -1,5 +1,5 @@
 .footer-static {
-	background-color: #515151;
+	background-color: var(--background);
 	padding: 35px 0 50px;
 	font-size: 32px;
     color: #fff;
@@ -9,10 +9,8 @@
 	left: 0;
 	z-index: 1;
 
-
 	&__logo {
 		display: flex;
-	// align-items: center;
 		flex-direction: column;
 
 		@media (max-width: 500px) {
@@ -23,9 +21,7 @@
 	&__title {
 		font-size: 43px;
 		font-weight: 600;
-		color: #F79C1B;
-
-	
+		color: var(--orange);
 
 		@media (max-width: 800px) {
 			font-size: 30px;
@@ -40,7 +36,6 @@
 	&__text {
 		font-size: 12px;
 		font-weight: 300;
-		color: #F6F6F680;
 	}
 	&__content {
 		display: flex;
@@ -87,16 +82,17 @@
 
 	&__btn{
 		font-size:16px;
-		border:1px solid #F79C1B;
-		color:#F79C1B;
+		border:1px solid var(--orange);
+		color:var(--orange);
 		padding: 6px 22px;
 		background-color:transparent;
 		align-self: flex-start;
-		transition: all 0.3s ease-in;
+		transition: color 0.3s ease-in, background-color 0.3s ease-in;
 		&:hover{
-			background-color: #F79C1B;
+			background-color: var(--orange);
 			color: #fff;
 		}
+
 		@media (max-width: 800px) {
 			padding: 6px 10px;
 		}
@@ -111,16 +107,10 @@
 			font-size: 12px;
 		}
 	}
-
-
     
 	@media (max-width: 1200px) {
 		font-size: 26px;
 	}
-
-	// &_bg{
-	// 	position: static;
-	// }
 
 	@media (max-width: 590px) {
 		padding: 35px 0 120px;
@@ -148,19 +138,16 @@
 			font-size: 18px;
 		}
 	}
-	
-	&__item{
-		// font-size: 16px;
-	}
 
 	&__link{
 		font-size: 16px;
 		font-weight: 300;
 		line-height: 26px;
-		transition: all 0.2s ease-in;
+		transition:border-bottom 0.2s ease-in;
         cursor: pointer;
+		
 		&:hover{
-			border-bottom: 1px solid #F79C1B !important;
+			border-bottom: 1px solid var(--orange) !important;
 		}
 
 		@media (max-width: 700px) {

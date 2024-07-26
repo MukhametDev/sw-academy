@@ -1,0 +1,140 @@
+.delivery {
+    padding: 166px 0;
+    display: flex;
+    width: 100%;
+    color: var(--black);
+    position: relative;
+    background-image: url("./../../img/delivery.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.delivery::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #EBEBEB;
+    z-index: 1;
+}
+
+@media (max-width: 700px) {
+    .delivery::before {
+        width: 100%;
+        background-color: #FEFEFE;
+    }
+}
+
+.delivery::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+    z-index: 0;
+}
+
+.delivery:hover::after {
+    transform: scale(1.1);
+}
+
+.delivery__container_delivery {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.delivery .delivery__block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 3;
+    margin-right: 0;
+}
+
+.delivery .delivery__title {
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: left;
+}
+
+@media (max-width: 1120px) {
+    .delivery .delivery__title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 900px) {
+    .delivery .delivery__title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 700px) {
+    .delivery .delivery__title {
+        font-size: 40px;
+    }
+}
+
+.delivery .delivery__content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-weight: 300;
+    align-self: flex-start;
+    max-width: 360px;
+}
+
+@media (max-width: 830px) {
+    .delivery .delivery__content {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 700px) {
+    .delivery .delivery__content {
+        max-width: 360px;
+    }
+}
+
+.delivery .delivery__btn {
+    align-self: flex-end;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: orange;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 230px;
+    transition: background-color 0.3s ease-in;
+}
+
+.delivery .delivery__btn:hover {
+    background-color: #c77e19;
+}
+
+@media (max-width: 700px) {
+    .delivery {
+        background-image: none;
+        padding: 71px 0 88px;
+    }
+}

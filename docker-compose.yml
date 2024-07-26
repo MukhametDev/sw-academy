@@ -1,0 +1,46 @@
+
+services:
+  sw-php:
+    build:
+      context: .
+      dockerfile: ./.docker/php/Dockerfile
+    volumes:
+      - .:/var/www/
+    ports:
+      - 8000:9000
+    depends_on:
+      - sw-mysql
+    networks:
+      - sw
+
+  sw-mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - ${DB_PORT}:3306
+    volumes:
+      - ./.docker/mysql:/var/lib/mysql
+    networks:
+      - sw
+
+  sw-nginx:
+    image: nginx:latest
+    ports:
+      - 3000:80
+    depends_on:
+      - sw-php
+      - sw-mysql
+    volumes:
+      - ./.docker/nginx/logs:/var/log/nginx
+      - ./.docker/nginx/conf.d:/etc/nginx/conf.d
+      - .:/var/www
+    networks:
+      - sw
+
+networks:
+  sw:
+    driver: bridge

@@ -2,9 +2,15 @@
 
 namespace Framework;
 
-class CUser
+use Framework\Models\Model;
+use Framework\Base\Enums\Role;
+
+class CUser extends Model
 {
-    public function __construct()
+    protected string $table = "users";
+    public function findById(int $id): array
     {
+        $sql = "SELECT * FROM {$this->table} WHERE id = :id";
+        return $this->db->fetchAll($sql, ["id" => $id]);
     }
 }

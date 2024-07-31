@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require __DIR__ . '/framework/framework.php';
 ?>
 
@@ -19,15 +20,7 @@ require __DIR__ . '/framework/framework.php';
 
     try {
         $APPLICATION->includeComponent("Header");
-        // $APPLICATION->includeComponent("MobileNav");
-        $APPLICATION->includeComponent("Kitchen");
-        $APPLICATION->includeComponent("Types_kitchen");
-        $APPLICATION->includeComponent("Form");
-        $APPLICATION->includeComponent("Material");
-        $APPLICATION->includeComponent("About");
-        $APPLICATION->includeComponent("Delivery");
-        $APPLICATION->includeComponent("Production");
-        $APPLICATION->includeComponent("Switch");
+        $APPLICATION->includeComponent("Auth");
         $APPLICATION->includeComponent("Footer");
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
@@ -35,5 +28,3 @@ require __DIR__ . '/framework/framework.php';
     ?>
 </body>
 <script src="./js/index.bundle.js"></script>
-
-</html>

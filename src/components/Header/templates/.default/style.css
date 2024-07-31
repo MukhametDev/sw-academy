@@ -48,7 +48,7 @@
 
 .logo-text_orange {
     font-size: 43px;
-    color: var(--orange);
+    color: var(--orange) !important;
 }
 
 @media (max-width: 1150px) {
@@ -59,6 +59,7 @@
 
 .logo-text_gray {
     color: var(--text-color-gray);
+    font-size: 16px;
 }
 
 @media (max-width: 1150px) {
@@ -170,4 +171,8 @@
 .mobile-nav-btn {
     z-index: 999;
     display: none;
+}
+
+.button {
+    color:orange;
 }

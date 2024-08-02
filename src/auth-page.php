@@ -22,6 +22,7 @@ require __DIR__ . '/framework/framework.php';
         $APPLICATION->includeComponent("Header");
         $APPLICATION->includeComponent("Auth");
         $APPLICATION->includeComponent("Footer");
+        $APPLICATION->includeComponent("LogOut");
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
     }

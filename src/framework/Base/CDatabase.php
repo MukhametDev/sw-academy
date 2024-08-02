@@ -2,16 +2,16 @@
 
 namespace Framework;
 
+use Framework\Traits\Singleton;
+
 class CDatabase
 {
+    use Singleton;
+
     protected array $config = [];
 
     protected \PDO $connection;
 
-    public function __construct()
-    {
-        $this->init();
-    }
 
     protected function init()
     {

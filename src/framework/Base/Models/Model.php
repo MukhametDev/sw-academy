@@ -4,72 +4,68 @@ namespace Framework\Models;
 
 use Framework\CDatabase;
 
-class Model
+abstract class Model
 {
-    protected CDatabase $db;
-    protected string $table;
+    protected array $data;
+    protected static string $repository;
 
-    public function __construct(CDatabase $db)
+    public function __construct(array $data)
     {
-        $this->db = $db;
+        $this->data = $data;
     }
 
-    public function findAll(): array
+    public static function findAll(): array
     {
-        $sql = "SELECT * FROM {$this->table}";
-        return $this->db->fetchAll($sql);
+        return static::$repository::findAll();
     }
 
-    public function findById(int $id): array
+    public static function findById(int $id): self
     {
-        return $this->db->query("SELECT FROM {$this->table} WHERE id = :id", ["id" => $id])->fetch(\PDO::FETCH_ASSOC);
+        return static::$repository::findById($id);
     }
 
-    public function create(array $data): bool
+    public static function create(array $data): bool
     {
-        $fields = implode(', ', array_keys($data));
-        $placeholders = ':' . implode(', :', array_keys($data));
-        $sql = "INSERT INTO {$this->table} ({$fields}) VALUES ({$placeholders})";
-        return $this->db->execute($sql, $data);
+        return static::$repository::create($data);
     }
 
-    public function update(int $id, array $data): bool
+    public static function update(int $id, array $data): bool
     {
-        $setClause = '';
-        foreach ($data as $key => $value) {
-            $setClause .= "{$key} = :{$key}, ";
-        }
-        $setClause = rtrim($setClause, ', ');
-
-        $sql = "UPDATE {$this->table} SET {$setClause} WHERE id = :id";
-
-        $params = array_merge($data, ["id" => $id]);
-
-        return $this->db->execute($sql, $params);
+        return static::$repository::update($id, $data);
     }
 
     public function delete(int $id): bool
     {
-        return $this->db->execute("DELETE FROM {$this->table} WHERE id = :id", ["id" => $id]);
+        return static::$repository::deleteExec($id);
     }
+
+    public static function deleteIternal(int $id): bool
+    {
+        return static::$repository::deleteExec($id);
+    }
+
+    protected static function deleteExec(int $id): bool
+    {
+        return static::$repository::deleteExec($id);
+    }
+
+    // public function __call(string $name, array $args)
+    // {
+    //     if (strpos($name, 'get') !== 0) {
+    //         return null;
+    //     }
+
+    //     $fieldName = strtolower(substr($name, 3));
+    //     return $this->data[$fieldName] ?? null;
+    // }
+
+    // public function __get(string $name)
+    // {
+    //     return $this->data[$name] ?? null;
+    // }
 
     public function search(array $conditions): array
     {
-        $query = "SELECT * FROM {$this->table} WHERE ";
-        $clauses = [];
-        $params = [];
-
-        foreach ($conditions as $field => $value) {
-            if (is_array($value)) {
-                $clauses[] = "{$field} LIKE :{$field}";
-                $params[$field] = '%' . $value[0] . '%';
-            } else {
-                $clauses[] = "{$field} = :{$field}";
-                $params[$field] = $value;
-            }
-        }
-
-        $query .= implode(' AND ', $clauses);
-        return $this->db->query($query, $params)->fetchAll(\PDO::FETCH_ASSOC);
+        return static::$repository::search($conditions);
     }
 }

@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 if (!isset($arParams)) {
     $arParams = [];
@@ -14,7 +14,6 @@ $btnName = $arParams['btnName'] ?? 'Default Button';
 $isUserLoggedIn = isset($_SESSION['user_id']);
 $username = $isUserLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
 
-var_dump($_SESSION);
 ?>
 
 <header class="header">
@@ -34,8 +33,8 @@ var_dump($_SESSION);
         <div class="relationship">
             <a class="relationship__phone" href="#"><?php echo htmlspecialchars($phone) ?></a>
             <?php if ($isUserLoggedIn) : ?>
-                <span>Welcome, <?php echo $username; ?>!</span>
-                <a href="/../../../logout.php" class="button">Logout</a>
+                <span><?= $username; ?></span>
+                <a href="/index.php?action=logout" class="btn_logout">Выйти</a>
             <?php else : ?>
                 <button type="button" class="button">
                     <a href="/../../../auth-page.php" class=""><?php echo htmlspecialchars($btnName); ?></a>

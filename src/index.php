@@ -1,4 +1,6 @@
 <?php
+
+ob_start();
 session_start();
 require __DIR__ . '/framework/framework.php';
 ?>
@@ -19,6 +21,7 @@ require __DIR__ . '/framework/framework.php';
 
     try {
         $APPLICATION->includeComponent("Header");
+        $APPLICATION->includeComponent("LogOut");
         // $APPLICATION->includeComponent("MobileNav");
         $APPLICATION->includeComponent("Kitchen");
         $APPLICATION->includeComponent("Types_kitchen");
@@ -35,5 +38,7 @@ require __DIR__ . '/framework/framework.php';
     ?>
 </body>
 <script src="./js/index.bundle.js"></script>
-
 </html>
+<?php
+ob_end_flush(); // Отправка буферизованного вывода
+?>

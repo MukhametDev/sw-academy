@@ -1,8 +1,8 @@
 <?php
 
-namespace Framework\Base\Enums;
+namespace Framework\Enums;
 
-enum Role: int
+enum CUserEnums: int
 {
     case ADMIN = 1;
     case USER = 2;

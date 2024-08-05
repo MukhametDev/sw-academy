@@ -4,7 +4,7 @@ namespace Framework;
 
 class CMain
 {
-    public function includeComponent(string $component, string $template = ".default", array $params = [])
+    public function includeComponent(string $component, string $template = ".default", array $arParams = [])
     {
         ob_start();
         include $this->getPathComponent($component) . "/component.php";

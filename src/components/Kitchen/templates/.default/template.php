@@ -6,16 +6,15 @@
     <div class="block">
     <div class="overlay">
         <div class="overlay__content">
-            <h2 class="overlay__title">Заказывайте кухню от производителя</h2>
+            <h2 class="overlay__title"><?= $arResult['title'] ?></h2>
             <div class="overlay__message">
-                <p class="overlay__subtitle">Высокое качество, профессиональный подход
-                    и креативные решения</p>
-                <p class="overlay__text">Работаем по Тюмени и Тюменской области</p>
+                <p class="overlay__subtitle"><?= $arResult['text-top'] ?></p>
+                <p class="overlay__text"><?= $arResult['text-bottom'] ?></p>
             </div>
         </div>
     </div>
     <div class="block__btn">
-        <button type="button" class="button button_bg">Оставить заявку</button>
+        <button type="button" class="button button_bg"><?= $arResult['btnName'] ?></button>
     </div>
 </div>
  

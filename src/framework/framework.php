@@ -10,33 +10,17 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/../vendor/autoload.php";
 global $APPLICATION;
 
 $APPLICATION = new CMain();
-$DB = new CDatabase();
-$userData = [
-    'username' => 'Ronaldo',
-    'email' => 'Ronaldo@example.com',
-    'password' => password_hash('123', PASSWORD_DEFAULT), // Захешируем пароль перед вставкой
-];
-$USER = new CUser($userData);
-$USER->create($userData);
+// $DB = new CDatabase();
+// $userData = [
+//     'username' => 'Ronaldo',
+//     'email' => 'Ronaldo@example.com',
+//     'password' => password_hash('123', PASSWORD_DEFAULT), // Захешируем пароль перед вставкой
+// ];
+// $USER = new CUser($userData);
+// $USER->create($userData);
 // dd($USER->update($userData));
 // $userModel = new CUser($DB);
 
-// Данные для вставки
-// $userData = [
-//     'username' => 'john',
-//     'email' => 'john@example.com',
-//     'password' => password_hash('securepassword', PASSWORD_DEFAULT), // Захешируем пароль перед вставкой
-// ];
-
-// $updateData = [
-//     'email' => 'john@example.com',
-// ];
-// Вставка данных в таблицу
-// $success = $USER->create($userData);
-// $updateSucces = $USER->update(4, $updateData);
-// $deleteUser = $USER->delete(1);
-// $data = $USER->findById(1);
-// dd($data);
 
 // Вход
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {

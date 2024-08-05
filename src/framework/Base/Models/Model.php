@@ -49,20 +49,20 @@ abstract class Model
         return static::$repository::deleteExec($id);
     }
 
-    // public function __call(string $name, array $args)
-    // {
-    //     if (strpos($name, 'get') !== 0) {
-    //         return null;
-    //     }
+    public function __call(string $name, array $args)
+    {
+        if (strpos($name, 'get') !== 0) {
+            return null;
+        }
 
-    //     $fieldName = strtolower(substr($name, 3));
-    //     return $this->data[$fieldName] ?? null;
-    // }
+        $fieldName = strtolower(substr($name, 3));
+        return $this->data[$fieldName] ?? null;
+    }
 
-    // public function __get(string $name)
-    // {
-    //     return $this->data[$name] ?? null;
-    // }
+    public function __get(string $name)
+    {
+        return $this->data[$name] ?? null;
+    }
 
     public function search(array $conditions): array
     {

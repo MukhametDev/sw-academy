@@ -3,11 +3,11 @@
         <div class="material__content">
 
             <div class="material__top">
-                <h2 class="material__title"><?php echo htmlspecialchars($arParams['title']) ?></h2>
+                <h2 class="material__title"><?php echo htmlspecialchars($arResult['title']) ?></h2>
             </div>
             <div class="material__bottom">
                 <div class="material__items">
-                    <?php foreach ($arParams['cards'] as $item) : ?>
+                    <?php foreach ($arResult['cards'] as $item) : ?>
                         <div class="card card_grid">
                             <div class="card__image card__image_grid">
                                 <img src="<?php echo htmlspecialchars($item['img']) ?>" alt="image" class="card__img card__img_grid">

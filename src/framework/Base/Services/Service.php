@@ -2,7 +2,7 @@
 
 namespace Framework\Services;
 
-class BaseService
+class Service
 {
     
 }

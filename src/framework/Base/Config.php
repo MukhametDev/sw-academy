@@ -21,17 +21,22 @@ class Config
         $dotenv->load();
 
         $this->dbSettings = [
-            "host" => $_ENV["DB_HOST"],
-            "user" => $_ENV["DB_USER"],
-            "password" => $_ENV["DB_PASSWORD"],
-            "database" => $_ENV["DB_DATABASE"],
-            "port" => $_ENV["DB_PORT"],
-            "driver" => $_ENV["DB_DRIVER"],
+            "host" => $this->getEnv("DB_HOST"),
+            "user" => $this->getEnv("DB_USER"),
+            "password" => $this->getEnv("DB_PASSWORD"),
+            "database" => $this->getEnv("DB_DATABASE"),
+            "port" =>  $this->getEnv("DB_PORT"),
+            "driver" =>  $this->getEnv("DB_DRIVER"),
         ];
     }
 
     public function getDBSettings(): array
     {
         return $this->dbSettings;
+    }
+
+    public function getEnv(string $env): string
+    {
+        return $_ENV[$env];
     }
 }

@@ -1,15 +1,15 @@
 <?php
 // session_start();
 
-if (!isset($arParams)) {
-    $arParams = [];
+if (!isset($arPesult)) {
+    $arPesult = [];
 }
 
-$logoTitle = $arParams['logoTitle'] ?? 'Default Title';
-$logoSubtitle = $arParams['logoSubtitle'] ?? 'Default Subtitle';
-$navItems = $arParams['navItems'] ?? [];
-$phone = $arParams['phone'] ?? 'Default Phone';
-$btnName = $arParams['btnName'] ?? 'Default Button';
+$logoTitle = $arPesult['logoTitle'] ?? 'Default Title';
+$logoSubtitle = $arPesult['logoSubtitle'] ?? 'Default Subtitle';
+$navItems = $arPesult['navItems'] ?? [];
+$phone = $arPesult['phone'] ?? 'Default Phone';
+$btnName = $arPesult['btnName'] ?? 'Default Button';
 
 $isUserLoggedIn = isset($_SESSION['user_id']);
 $username = $isUserLoggedIn ? htmlspecialchars($_SESSION['username']) : '';

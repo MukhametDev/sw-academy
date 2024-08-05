@@ -3,6 +3,8 @@
 use Framework\CMain;
 use Framework\CDatabase;
 use Framework\CUser;
+use Framework\Validators\Validator;
+use Framework\Validators\UserValidator;
 use Symfony\Component\VarDumper\VarDumper;
 
 include_once $_SERVER["DOCUMENT_ROOT"] . "/../vendor/autoload.php";
@@ -10,16 +12,46 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/../vendor/autoload.php";
 global $APPLICATION;
 
 $APPLICATION = new CMain();
-// $DB = new CDatabase();
-// $userData = [
-//     'username' => 'Ronaldo',
-//     'email' => 'Ronaldo@example.com',
-//     'password' => password_hash('123', PASSWORD_DEFAULT), // Захешируем пароль перед вставкой
-// ];
-// $USER = new CUser($userData);
-// $USER->create($userData);
-// dd($USER->update($userData));
-// $userModel = new CUser($DB);
+$DB = new CDatabase();
+$userData = [
+    'username' => 'Lionel Messi',
+    'email' => 'VhJqB@example.com',
+    'password' => password_hash('123', PASSWORD_DEFAULT), 
+];
+$USER = new CUser($userData);
+$isValid = $USER->validate($userData);
+
+$validator = new UserValidator();
+
+$validator->setRules([
+    'name' => 'required|min_length:3',
+    'email' => 'required|email',
+    'password' => 'required|min_length:8',
+]);
+
+$validator->setMessages([
+    'required' => 'This field is required.',
+    'min_length' => 'This field must be at least :param characters long.',
+    'email' => 'This field must be a valid email address.',
+]);
+
+
+$invalidUserData = [
+    'name' => '',
+    'email' => 'invalidemail',
+    'password' => 'short',
+    'role_id' => 1
+];
+
+$validator->validate($invalidUserData);
+dd($validator);
+if ($isValid) {
+    echo "Validation passed. User can be created.";
+} else {
+    echo "Validation failed. Errors:";
+    var_dump($validator->getErrors());
+}
+
 
 
 // Вход

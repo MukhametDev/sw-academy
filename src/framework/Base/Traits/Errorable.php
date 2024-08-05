@@ -4,25 +4,25 @@ namespace Framework\Traits;
 
 trait Errorable
 {
-    protected static $errors = [];
+    protected array $errors = [];
 
     public function addError(string $field, \Exception $error): void
     {
-        static::$errors[$field][] = $error;
+         $this->errors[$field][] = $error;
     }
 
     public function getErrors(): array
     {
-        return static::$errors;
+        return $this->errors;
     }
 
     public function clearErrors(): void
     {
-        static::$errors = [];
+        $this->errors = [];
     }
 
     public function hasErrors(): bool
     {
-        return !empty(static::$errors);
+        return !empty($this->errors);
     }
 }

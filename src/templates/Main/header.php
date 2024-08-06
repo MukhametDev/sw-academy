@@ -1,6 +1,6 @@
 <?php
 // session_start();
-
+// global $arResult;
 if (!isset($arResult)) {
     $arResult = [];
 }
@@ -20,7 +20,7 @@ $username = $isUserLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     <div class="header__row">
 
         <div class="logo-text">
-            <a href="/" class="logo-text logo-text_orange "><?= htmlspecialchars($logoTitle) ?></span>
+            <a href="/" class="logo-text logo-text_orange "><?php echo  htmlspecialchars($logoTitle) ?></span>
                 <span class="logo-text logo-text_gray"><?php echo htmlspecialchars($logoSubtitle) ?></span>
         </div>
         <nav class="nav-items">

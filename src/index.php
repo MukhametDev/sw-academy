@@ -1,8 +1,16 @@
 <?php
 
+use Framework\Config;
+
 ob_start();
 session_start();
 require __DIR__ . '/framework/framework.php';
+
+// Получаем активный шаблон из конфигурации
+$switch_env_variable = trim(Config::getInstance()->getEnv("CUSTOM_TEMPLATE"));
+
+// Путь к общему файлу стилей
+$commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +20,8 @@ require __DIR__ . '/framework/framework.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <!-- <link rel="stylesheet" href="/css/main.css"> -->
+    <link rel="stylesheet" href="<?php echo $commonStylesPath; ?>">
     <title>Furniture</title>
 </head>
 
@@ -20,7 +29,7 @@ require __DIR__ . '/framework/framework.php';
     <?php
 
     try {
-        $APPLICATION->includeComponent("Header", ".default", $arParams = [
+        $APPLICATION->processHeader("Header", ".default", $arParams = [
             "logoTitle" => "Мебель",
             "logoSubtitle" => "Центр информационных технологий",
             "navItems" => [
@@ -44,15 +53,15 @@ require __DIR__ . '/framework/framework.php';
             ],
             "phone" => "+7 3452 00-00-00",
             "btnName" => "Оставить заявку"
-        ]);
-        $APPLICATION->includeComponent("LogOut", ".default");
+        ],);
+        $APPLICATION->includeComponent("LogOut", ".default", $arParams = [], $templateName = "Main");
         // $APPLICATION->includeComponent("MobileNav");
         $APPLICATION->includeComponent("Kitchen", ".default", $arParams = [
             "title" => "Заказывайте кухню от производителя",
             "text-top" => "Высокое качество, профессиональный подход и креативные решения",
             "text-bottom" => "Работаем по Тюмени и Тюменской области",
             "btnName" => "Оставить заявку"
-        ]);
+        ],);
         $APPLICATION->includeComponent("Types_kitchen", ".default", $arParams = [
             "title-top" => "Виды кухонь",
             "cards" => [
@@ -100,14 +109,14 @@ require __DIR__ . '/framework/framework.php';
                     "text" => "Это разновидность этнических направлений в минимализме, в которой присутствуют безукоризненные цветовые комбинации и лаконичность форм в сочетании с нестандартными решениями в оформлении"
                 ]
             ]
-        ]);
+        ],);
         $APPLICATION->includeComponent("Form", ".default", $arParams = [
             "title" => "Оставьте заявку",
             "subTitle" => "Наши специалисты свяжутся с вами в течение одного часа",
             "placeholder-name" => "Имя",
             "placeholder-phone" => "Телефон",
             "btnName" => "Отправить"
-        ]);
+        ],);
         $APPLICATION->includeComponent("Material", ".default", $arParams = [
             "title" => "Материалы фасада кухонь",
             "cards" => [
@@ -142,24 +151,24 @@ require __DIR__ . '/framework/framework.php';
                     "text" => "Используя огромную цветовую палитру эмали, вы можете сделать, вашу кухню свежей и яркой"
                 ],
             ]
-        ]);
+        ],);
         $APPLICATION->includeComponent("About", ".default", $arParams = [
             "title" => "О кухнях",
             "text-top" => "Наша компания изготавливает кухни по индивидуальному проекту, что позволит самостоятельно выбрать стиль и цвет каждого изделия.",
             "text-bottom" => "У нас вы найдете более 1000 цветов фартуков с фотопечатью и более 100 вариантов дверных ручек, разновидностей фурнитуры, цветов столешниц, фасадов и стеновых изделий.",
             "btnTitle" => "Заказать"
-        ]);
+        ],);
         $APPLICATION->includeComponent("Delivery", ".default", $arParams = [
             "title" => "Доставка",
             "text-top" => "Мы организуем транспортировку вашего заказа, и, при необходимости, наши сотрудники смогут сразу же произвести сборку и установку оборудования.",
             "text-bottom" => "Вы можете быть уверены в том, что все изделия будут перевезены в точном соответствии с установленными правилами перевозки.",
-        ]);
+        ],);
         $APPLICATION->includeComponent("Production", ".default", $arParams = [
             "title" => "У нас своё производство",
             "text-top" => "Компания “МЕБЕЛЬ” создана в апреле 2011 года инженером-технологом Дмитрием Николаевичем Важинским, имеет собственное производство и профессиональное оборудование.",
             "text-bottom" => "Вы можете посетить нас (Тюмень, ул.Калинина, 22/1) в любое удобное для вас время, предварительно записавшись к директору компании через сайт, либо по телефону +7 345 00-00-00.",
             "btnTitle" => "Записаться"
-        ]);
+        ],);
         $APPLICATION->includeComponent("Switch", ".default", $arParams = [
             "title" => "Что мы предлагаем",
             "cards" => [
@@ -184,8 +193,8 @@ require __DIR__ . '/framework/framework.php';
                     "text" => "Предусмотрим все нюансы и дадим рекомендациипо расположению элементов кухни"
                 ],
             ]
-        ]);
-        $APPLICATION->includeComponent("Footer", ".default", $arParams = [
+        ],);
+        $APPLICATION->processFooter("Footer", ".default", $arParams = [
             "footer-items" => [
                 [
                     "name" => "2024 “Мебель.ру” Все права защищены."
@@ -235,7 +244,7 @@ require __DIR__ . '/framework/framework.php';
                 ],
             ],
             "btnTitle" => "Авторизоваться"
-        ]);
+        ],);
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
     }

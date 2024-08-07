@@ -19,7 +19,7 @@ require __DIR__ . '/framework/framework.php';
     <?php
 
     try {
-        $APPLICATION->includeComponent("Header", ".default", $arParams = [
+        $APPLICATION->processHeader("Header", ".default", $arParams = [
             "logoTitle" => "Мебель",
             "logoSubtitle" => "Центр информационных технологий",
             "navItems" => [
@@ -51,7 +51,7 @@ require __DIR__ . '/framework/framework.php';
             "placeholder-password" => "Пароль",
             "btnName" => "Войти"
         ]);
-        $APPLICATION->includeComponent("Footer", ".default", $arParams = [
+        $APPLICATION->processFooter("Footer", ".default", $arParams = [
             "footer-items" => [
                 [
                     "name" => "2024 “Мебель.ру” Все права защищены."

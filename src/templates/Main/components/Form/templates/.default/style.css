@@ -1,0 +1,131 @@
+.form-section {
+    color: var(--orange);
+    background-color: var(--gray-light);
+    padding: 160px 0;
+}
+
+.form-section__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.form-section__top {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+@media (max-width: 800px) {
+    .form-section__top {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 550px) {
+    .form-section__bottom {
+        width: 100%;
+    }
+}
+
+.form-section__title {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+@media (max-width: 800px) {
+    .form-section__title {
+        font-size: 30px;
+    }
+}
+
+.form-section__text {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 26px;
+    display: inline-block;
+}
+
+@media (max-width: 800px) {
+    .form-section__text {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 800px) {
+    .form-section {
+        padding: 80px 0;
+    }
+}
+
+@media (max-width: 550px) {
+    .form-section {
+        padding: 40px 0;
+    }
+}
+
+.section-form {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.section-form__input {
+    border: 1px solid var(--orange);
+    padding: 9px 30px;
+    width: 100%;
+    max-width: 255px;
+    height: 50px;
+}
+
+.section-form__input::placeholder {
+    color: var(--gray);
+    font-weight: 300;
+}
+
+@media (max-width: 800px) {
+    .section-form__input {
+        padding: 4px 15px;
+        max-width: 200px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 550px) {
+    .section-form__input {
+        max-width: 100%;
+    }
+}
+
+.section-form__btn {
+    background-color: var(--orange);
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 9px 76px;
+    width: 100%;
+    max-width: 255px;
+    height: 50px;
+    transition: background-color 0.3s ease-in;
+}
+
+.section-form__btn:hover {
+    background-color: #c37f00;
+}
+
+@media (max-width: 800px) {
+    .section-form__btn {
+        padding: 4px 15px;
+        max-width: 200px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 550px) {
+    .section-form {
+        flex-direction: column;
+        max-width: 100%;
+    }
+}

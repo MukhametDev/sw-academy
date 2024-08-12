@@ -4,6 +4,7 @@ namespace Framework;
 
 class CMain
 {
+    private $stylesLinks = [];
     public function includeComponent(string $component, string $template = ".default", array $arParams = [])
     {
         ob_start();
@@ -79,6 +80,7 @@ class CMain
     public function processHeader(string $templateName, string $styles, $arParams): void
     {
         $documentRoot = $this->getDocumentRoot();
+
         $arResult = $arParams;
         $switch_env_variable = trim(Config::getInstance()->getEnv("CUSTOM_TEMPLATE"));
 

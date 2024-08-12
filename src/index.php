@@ -20,14 +20,16 @@ $commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- <link rel="stylesheet" href="/css/main.css"> -->
     <link rel="stylesheet" href="<?php echo $commonStylesPath; ?>">
     <title>Furniture</title>
+
 </head>
 
 <body>
+<div class="#app">
     <?php
-
     try {
         $APPLICATION->processHeader("Header", ".default", $arParams = [
             "logoTitle" => "Мебель",
@@ -58,12 +60,13 @@ $commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
         // $APPLICATION->includeComponent("MobileNav");
         $APPLICATION->includeComponent("Kitchen", ".default", $arParams = [
             "title" => "Заказывайте кухню от производителя",
-            "text-top" => "Высокое качество, профессиональный подход и креативные решения",
-            "text-bottom" => "Работаем по Тюмени и Тюменской области",
-            "btnName" => "Оставить заявку"
+            "textTop" => "Высокое качество, профессиональный подход и креативные решения",
+            "textBottom" => "Работаем по Тюмени и Тюменской области",
+            "btnName" => "Оставить заявку",
+            "img" => "./../../img/kitchen.jpeg"
         ],);
         $APPLICATION->includeComponent("Types_kitchen", ".default", $arParams = [
-            "title-top" => "Виды кухонь",
+            "titleTop" => "Виды кухонь",
             "cards" => [
                 [
                     "src" => "./../../img/img1.jpeg",
@@ -81,7 +84,7 @@ $commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
                     "text" => "Остров сочетает в себе систему хранения принадлежностей и обеденную зону"
                 ]
             ],
-            "title-bottom" => "Стили кухонь",
+            "titleBottom" => "Стили кухонь",
             "items" => [
                 [
                     "src" => "./../../img/img1.jpeg",
@@ -113,8 +116,8 @@ $commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
         $APPLICATION->includeComponent("Form", ".default", $arParams = [
             "title" => "Оставьте заявку",
             "subTitle" => "Наши специалисты свяжутся с вами в течение одного часа",
-            "placeholder-name" => "Имя",
-            "placeholder-phone" => "Телефон",
+            "placeholderName" => "Имя",
+            "placeholderPhone" => "Телефон",
             "btnName" => "Отправить"
         ],);
         $APPLICATION->includeComponent("Material", ".default", $arParams = [
@@ -154,19 +157,19 @@ $commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
         ],);
         $APPLICATION->includeComponent("About", ".default", $arParams = [
             "title" => "О кухнях",
-            "text-top" => "Наша компания изготавливает кухни по индивидуальному проекту, что позволит самостоятельно выбрать стиль и цвет каждого изделия.",
-            "text-bottom" => "У нас вы найдете более 1000 цветов фартуков с фотопечатью и более 100 вариантов дверных ручек, разновидностей фурнитуры, цветов столешниц, фасадов и стеновых изделий.",
+            "textTop" => "Наша компания изготавливает кухни по индивидуальному проекту, что позволит самостоятельно выбрать стиль и цвет каждого изделия.",
+            "textBottom" => "У нас вы найдете более 1000 цветов фартуков с фотопечатью и более 100 вариантов дверных ручек, разновидностей фурнитуры, цветов столешниц, фасадов и стеновых изделий.",
             "btnTitle" => "Заказать"
         ],);
         $APPLICATION->includeComponent("Delivery", ".default", $arParams = [
             "title" => "Доставка",
-            "text-top" => "Мы организуем транспортировку вашего заказа, и, при необходимости, наши сотрудники смогут сразу же произвести сборку и установку оборудования.",
-            "text-bottom" => "Вы можете быть уверены в том, что все изделия будут перевезены в точном соответствии с установленными правилами перевозки.",
+            "textTop" => "Мы организуем транспортировку вашего заказа, и, при необходимости, наши сотрудники смогут сразу же произвести сборку и установку оборудования.",
+            "textBottom" => "Вы можете быть уверены в том, что все изделия будут перевезены в точном соответствии с установленными правилами перевозки.",
         ],);
         $APPLICATION->includeComponent("Production", ".default", $arParams = [
             "title" => "У нас своё производство",
-            "text-top" => "Компания “МЕБЕЛЬ” создана в апреле 2011 года инженером-технологом Дмитрием Николаевичем Важинским, имеет собственное производство и профессиональное оборудование.",
-            "text-bottom" => "Вы можете посетить нас (Тюмень, ул.Калинина, 22/1) в любое удобное для вас время, предварительно записавшись к директору компании через сайт, либо по телефону +7 345 00-00-00.",
+            "textTop" => "Компания “МЕБЕЛЬ” создана в апреле 2011 года инженером-технологом Дмитрием Николаевичем Важинским, имеет собственное производство и профессиональное оборудование.",
+            "textBottom" => "Вы можете посетить нас (Тюмень, ул.Калинина, 22/1) в любое удобное для вас время, предварительно записавшись к директору компании через сайт, либо по телефону +7 345 00-00-00.",
             "btnTitle" => "Записаться"
         ],);
         $APPLICATION->includeComponent("Switch", ".default", $arParams = [
@@ -195,7 +198,7 @@ $commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
             ]
         ],);
         $APPLICATION->processFooter("Footer", ".default", $arParams = [
-            "footer-items" => [
+            "footerItems" => [
                 [
                     "name" => "2024 “Мебель.ру” Все права защищены."
                 ],
@@ -207,8 +210,8 @@ $commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
                 ],
             ],
             "logo" => "Мебель",
-            "logo-text" => "Центр мебельных технологий",
-            "menu-title" => "Меню",
+            "logoText" => "Центр мебельных технологий",
+            "menuTitle" => "Меню",
             "menu" => [
                 [
                     "item" => "Шкафы купе",
@@ -231,7 +234,7 @@ $commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
                     "href" => "#"
                 ],
             ],
-            "contact-title" => "Контакты",
+            "contactTitle" => "Контакты",
             "contacts" => [
                 [
                     "item" => "info@mebel.ru"
@@ -249,6 +252,7 @@ $commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
         echo "Error: " . $e->getMessage();
     }
     ?>
+</div>
 </body>
 <script src="./js/index.bundle.js"></script>
 </html>

@@ -1,4 +1,3 @@
-import SecuryList from './components/SecuryList.js'
 import FooterSection from "./components/FooterSection.js";
 
 const element = document.querySelector('.secury');
@@ -7,7 +6,6 @@ const data = JSON.parse(element.getAttribute('data-data'));
 Vue.createApp({
     name: 'Secury',
     components:{
-        SecuryList,
         FooterSection
     },
     data() {
@@ -23,7 +21,6 @@ Vue.createApp({
         }
     },
     template: `
-        <SecuryList :items="footerItems" />
-        <FooterSection :logo="logo" :logoText="logoText" :menuTitle="menuTitle" :menu="menu" :contactsTitle="contactsTitle" :contacts="contacts" :btnTitle="btnTitle" />
+        <FooterSection :items="footerItems" :logo="logo" :logoText="logoText" :menuTitle="menuTitle" :menu="menu" :contactsTitle="contactsTitle" :contacts="contacts" :btnTitle="btnTitle" />
     `
 }).mount(".secury")

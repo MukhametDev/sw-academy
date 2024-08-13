@@ -2,7 +2,7 @@ import Cards from './components/Cards.js'
 
 const element = document.querySelector('.switch');
 const data = JSON.parse(element.getAttribute('data-data'));
-console.log(data)
+
 Vue.createApp({
     name: 'Switch',
     components: {

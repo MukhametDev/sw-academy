@@ -1,5 +1,4 @@
 import Card from '../../Material/components/Card.js'
-
 export default ({
    name: 'Swiper',
     components: {

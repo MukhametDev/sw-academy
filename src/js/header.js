@@ -2,7 +2,6 @@ import Items from './components/Items.js';
 const element = document.querySelector('.header');
 const data = JSON.parse(element.getAttribute('data-data'));
 
-
 Vue.createApp({
     name: 'Header',
     components:{
@@ -26,14 +25,9 @@ Vue.createApp({
         <Items :items="items"/>
         <div class="relationship">
             <a class="relationship__phone" href="#">{{phone}}</a>
-<!--            <?php if ($isUserLoggedIn) : ?>-->
-<!--                <span><?= $username; ?></span>-->
-<!--                <a href="/index.php?action=logout" class="btn_logout">Выйти</a>-->
-<!--            <?php else : ?>-->
                 <button type="button" class="button">
                     <a href="/../../../auth-page.php" class="">{{btnName}}</a>
                 </button>
-<!--            <?php endif; ?>-->
         </div>
         <button class="mobile-nav-btn">
             <div class="nav-icon"></div>

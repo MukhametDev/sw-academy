@@ -1,4 +1,3 @@
-
 const element = document.querySelector('.delivery');
 const data = JSON.parse(element.getAttribute('data-data')); // Parse the JSON string
 

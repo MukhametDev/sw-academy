@@ -2,7 +2,6 @@ import Form from './templates/components/Form.js';
 
 const element = document.querySelector('.form-section');
 const data = JSON.parse(element.getAttribute('data-data'));
-console.log(data)
 
 Vue.createApp({
     name: 'FormSection',

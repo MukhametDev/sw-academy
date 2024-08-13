@@ -3,7 +3,6 @@ import Card from './components/Card.js';
 const element = document.querySelector('.material');
 const data = JSON.parse(element.getAttribute('data-data'));
 
-console.log(data)
 Vue.createApp({
     name: 'Material',
     components: {

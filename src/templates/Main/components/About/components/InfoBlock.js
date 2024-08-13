@@ -16,16 +16,6 @@ export default {
         </div>
     </div>
     `,
-  data() {
-    return {
-      message: 'Welcome to your new Vue component!'
-    };
-  },
-  methods: {
-    displayMessage() {
-      alert(this.message);
-    }
-  },
   props:{
     title: String,
     textTop: String,

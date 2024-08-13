@@ -12,6 +12,7 @@ require __DIR__ . '/framework/framework.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/main.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Furniture</title>
 </head>
 
@@ -46,13 +47,13 @@ require __DIR__ . '/framework/framework.php';
         ]);
         $APPLICATION->includeComponent("Auth", ".default", $arParams = [
             "title" => "Авторизация",
-            "placeholder-name" => "Имя",
-            "placeholder-email" => "Email",
-            "placeholder-password" => "Пароль",
+            "placeholderName" => "Имя",
+            "placeholderEmail" => "Email",
+            "placeholderPassword" => "Пароль",
             "btnName" => "Войти"
         ]);
         $APPLICATION->processFooter("Footer", ".default", $arParams = [
-            "footer-items" => [
+            "footerItems" => [
                 [
                     "name" => "2024 “Мебель.ру” Все права защищены."
                 ],
@@ -64,8 +65,8 @@ require __DIR__ . '/framework/framework.php';
                 ],
             ],
             "logo" => "Мебель",
-            "logo-text" => "Центр мебельных технологий",
-            "menu-title" => "Меню",
+            "logoText" => "Центр мебельных технологий",
+            "menuTitle" => "Меню",
             "menu" => [
                 [
                     "item" => "Шкафы купе",
@@ -88,7 +89,7 @@ require __DIR__ . '/framework/framework.php';
                     "href" => "#"
                 ],
             ],
-            "contact-title" => "Контакты",
+            "contactTitle" => "Контакты",
             "contacts" => [
                 [
                     "item" => "info@mebel.ru"

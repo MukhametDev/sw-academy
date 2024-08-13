@@ -2,7 +2,7 @@ import Swiper from './components/Swiper.js'
 
 const element = document.querySelector('.types-kitchen');
 const data = JSON.parse(element.getAttribute('data-data'));
-console.log(data)
+
 Vue.createApp({
     name: 'Types_kitchen',
     components: {

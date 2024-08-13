@@ -3,7 +3,6 @@ import Overlay from './templates/components/Overlay.js'
 const element = document.querySelector('.kitchen');
 const data = JSON.parse(element.getAttribute('data-data'));
 
-console.log(data)
 Vue.createApp({
     name:'Kitchen',
     data(){

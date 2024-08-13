@@ -7,7 +7,8 @@ export default ({
         menu: Array,
         contactsTitle: String,
         contacts: Array,
-        btnTitle: String
+        btnTitle: String,
+        items: Array
     },
     template: `
     <footer class="footer footer_bg">
@@ -33,6 +34,9 @@ export default ({
                 </div>
              <button class="footer__btn footer__btn_3">{{btnTitle}}</button>
             </div>
+            <ul class="footer__lists">
+              <li v-for="item in items" :key="item.name" class="footer__list">{{item.name}}</li>
+            </ul>
         </div>
     </footer>
     `,

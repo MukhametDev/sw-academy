@@ -1,7 +1,9 @@
 {
     "autoload": {
         "psr-4": {
-            "Framework\\": "src/framework/Base"
+            "Framework\\": "src/framework/Base",
+            "Templates\\": "src/templates",
+            "Components\\": "src/components"
         }
     },
     "require": {

@@ -1,10 +1,18 @@
-export default ({
+export default {
     name: 'Input',
     props: {
-        type: String,
-        placeholder: String
+        modelValue: String,
+        placeholder: String,
+        type: String
     },
+    emits: ['update:modelValue'],
     template: `
-        <input :placeholder="placeholder" :type="type" class="section-form__input">
+        <input 
+            class="section-form__input"
+            :type="type" 
+            :placeholder="placeholder" 
+            :value="modelValue" 
+            @input="$emit('update:modelValue', $event.target.value)" 
+        />
     `
-})
+}

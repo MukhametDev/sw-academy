@@ -24,7 +24,21 @@ $commonStylesPath = "/templates/{$switch_env_variable}/css/main.css";
     <!-- <link rel="stylesheet" href="/css/main.css"> -->
     <link rel="stylesheet" href="<?php echo $commonStylesPath; ?>">
     <title>Furniture</title>
-
+    <script>
+        const CONFIG = JSON.parse(`<?php echo $APPLICATION->frontendConfig(); ?>`)
+        const APP = {
+            runComponentInAction: async (component, action, payload=null, header={}) => {
+                return await fetch(CONFIG.endpoint,{
+                    method:"POST",
+                    headers: {
+                    "Content-Type" : "application/json",
+                    ...header
+                    },
+                    body: JSON.stringify({component, action, payload})
+                }).then(res => res.json())
+            }
+        }
+    </script>
 </head>
 
 <body>

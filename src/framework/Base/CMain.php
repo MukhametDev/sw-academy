@@ -116,4 +116,10 @@ class CMain
 
         echo $output;
     }
+
+    public function frontendConfig(): bool|string {
+        return json_encode([
+            "endpoint" => "/api.php"
+        ]);
+    }
 }

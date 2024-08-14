@@ -2,6 +2,7 @@
 
 use Framework\CMain;
 use Framework\CDatabase;
+use Framework\CApi;
 use Framework\CUser;
 use Framework\Validators\Validator;
 use Framework\Validators\UserValidator;
@@ -13,3 +14,4 @@ global $APPLICATION;
 
 $APPLICATION = new CMain();
 $DB = new CDatabase();
+$API = new CApi();

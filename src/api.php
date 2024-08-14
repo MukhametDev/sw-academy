@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 try{
     $filepath = $API->getApiClass(\Framework\Config::getInstance()->getEnv('CUSTOM_TEMPLATE'));
-    $instance = new $filepath(array_merge($API->getPayload(), ['action' => $API->getAction()]));
+    $instance = new $filepath([...$API->getPayload(),'action' => $API->getAction()]);
 
     echo json_encode($instance->runAction());
 } catch(\Exception $e) {

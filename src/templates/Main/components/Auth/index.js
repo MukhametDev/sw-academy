@@ -25,7 +25,6 @@ Vue.createApp({
             e.preventDefault();
             APP.runComponentInAction('Auth', 'create', this.form)
                 .then((res) => {
-                    console.log(res)
                     if (res === 'success') {  // Предполагается, что ответ содержит поле success
                         this.showPopup = true;
                         setTimeout(() => {
@@ -36,6 +35,10 @@ Vue.createApp({
                 .catch((err) => {
                     console.error(err);
                 });
+
+            this.resetForm();
+        },
+        resetForm(){
             this.form.username = '';
             this.form.email = '';
             this.form.password = '';

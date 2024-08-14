@@ -16,9 +16,8 @@ class Ajax extends CUser
        $this->checkAction($action);
        $this->data['password'] = $this->hashPassword($this->data['password']);
        $updateData = $this->insertDataArray($this->data);
-       $response = $this->$action($updateData);
 
-       return $response;
+       return $this->$action($updateData);
    }
 
    private function createAction(array $payload): string

@@ -24,7 +24,7 @@ abstract class Model
         return static::$repository::findById($id);
     }
 
-    public static function create(array $data): bool
+    public static function create(array $data): string
     {
         return static::$repository::create($data);
     }

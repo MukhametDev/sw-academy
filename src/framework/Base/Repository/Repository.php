@@ -36,14 +36,14 @@ abstract class Repository
         return new static($data);
     }
 
-    public static function create(array $data): bool
+    public static function create(array $data): string
     {
         $table = static::$table;
         $fields = implode(', ', array_keys($data));
         $placeholders = ':' . implode(', :', array_keys($data));
         $sql = "INSERT INTO {$table} ({$fields}) VALUES ({$placeholders})";
         $data = self::getDatabase()->execute($sql, $data);
-        return $data;
+        return $data ? 'success' : 'error';
     }
 
     public static function update($id, array $data): bool

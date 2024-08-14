@@ -9,5 +9,28 @@ use Framework\Repository\UserRepository;
 class CUser extends Model
 {
     protected static string $repository = UserRepository::class;
-    protected array $fiillable = ["username", "email", "password", "role_id"];
+    protected array $fillable = ["username", "email", "password", "role_id"];
+
+    protected function insertDataArray(): array
+    {
+        $filteredData = [];
+
+        foreach ($this->fillable as $field) {
+            if (isset($this->data[$field])) {
+                $filteredData[$field] = $this->data[$field];
+            }
+        }
+
+        return $filteredData;
+    }
+
+    protected function hashPassword(string $password): string
+    {
+        return password_hash($password, PASSWORD_DEFAULT);
+    }
+
+    protected function getByEmail(string $email)
+    {
+
+    }
 }

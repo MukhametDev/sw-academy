@@ -14,6 +14,21 @@ require __DIR__ . '/framework/framework.php';
     <link rel="stylesheet" href="/css/main.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Furniture</title>
+    <script>
+        const CONFIG = JSON.parse(`<?php echo $APPLICATION->frontendConfig(); ?>`)
+        const APP = {
+            runComponentInAction: async (component, action, payload=null, header={}) => {
+                return await fetch(CONFIG.endpoint,{
+                    method:"POST",
+                    headers: {
+                        "Content-Type" : "application/json",
+                        ...header
+                    },
+                    body: JSON.stringify({component, action, payload})
+                }).then(res => res.json())
+            }
+        }
+    </script>
 </head>
 
 <body>
